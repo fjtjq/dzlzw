@@ -35,7 +35,8 @@ def get_birthday():
   return (next - today).days
 
 def get_words():
-  words = requests.get("http://www.59xihuan.cn/")
+  headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36'}
+  words = requests.get("https://www.qiushibaike.com/text/paga/",headers = headers)
   if words.status_code != 200:
     return get_words()
   return words.json()['data']['text']
